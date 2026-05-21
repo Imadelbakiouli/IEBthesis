@@ -1,11 +1,3 @@
-# @inproceedings{ye2025stylemaster,
-# title={Stylemaster: Stylize your video with artistic generation and translation},
-# author={Ye, Zixuan and Huang, Huijuan and Wang, Xintao and Wan, Pengfei and Zhang, Di and Luo, Wenhan},
-# booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
-# pages={2630--2640},
-# year={2025}
-# }
-
 import sys
 import torch
 import torch.nn as nn
