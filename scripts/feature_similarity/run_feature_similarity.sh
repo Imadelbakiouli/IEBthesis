@@ -12,4 +12,4 @@ else
 fi
 source activate IEBthesis
 cd ~/tapnet
-python3 run_feature_similarity.py
+python3 feature_similarity.py
