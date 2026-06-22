@@ -80,8 +80,7 @@ def reconstruct_per_frame(calls, T, n_points, label):
     if len(calls) == 1 and calls[0].shape[0] == T * n_points:
         c = calls[0]
         C, H, W = c.shape[1], c.shape[2], c.shape[3]
-        # Assume frame-major ordering (T, n_points). If Layer24 heatmaps look
-        # temporally incoherent, switch to: c.reshape(n_points, T, C, H, W).mean(dim=0)
+
         return c.reshape(T, n_points, C, H, W).mean(dim=1)  # (T, C, H, W)
 
     raise ValueError(f"{label}: cannot map to frames, calls={[tuple(c.shape) for c in calls]}")
