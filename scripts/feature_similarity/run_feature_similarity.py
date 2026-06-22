@@ -229,21 +229,21 @@ plt.savefig(os.path.join(OUTPUT_DIR, 'similarity_per_layer_allframes.png'), dpi=
 plt.close()
 print("Bar chart saved!")
 
-# Scatter similarity vs AJ drop
-fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+# Scatter similarity vs AJ drop (stacked)
+fig, axes = plt.subplots(3, 1, figsize=(8, 15))
 for ax, layer_name, color in zip(axes, layer_names, colors):
     sims  = [r['similarities'][layer_name] for r in all_results if layer_name in r['similarities']]
     drops = [r['aj_drop'] for r in all_results if layer_name in r['similarities']]
     r_val, p_val = stats.pearsonr(sims, drops)
-    ax.scatter(sims, drops, color=color, s=60, alpha=0.8)
+    ax.scatter(sims, drops, color=color, s=90, alpha=0.8)
     for i, (s, d) in enumerate(zip(sims, drops)):
-        ax.annotate(str(i), (s, d), fontsize=7, ha='right')
-    ax.set_xlabel('Cosine Similarity', fontsize=11)
-    ax.set_ylabel('AJ Drop', fontsize=11)
-    ax.set_title(f'{layer_name}\nr={r_val:.3f}, p={p_val:.4f}', fontsize=11)
-plt.suptitle('Feature Similarity vs Performance Drop per Layer - All Frames', fontsize=13)
+        ax.annotate(str(i), (s, d), fontsize=11, ha='right')
+    ax.set_xlabel('Cosine Similarity', fontsize=18)
+    ax.set_ylabel('AJ Drop', fontsize=18)
+    ax.set_title(f'{layer_name}   (r = {r_val:.3f}, p = {p_val:.4f})', fontsize=18)
+    ax.tick_params(axis='both', labelsize=14)
 plt.tight_layout()
-plt.savefig(os.path.join(OUTPUT_DIR, 'similarity_vs_drop_allframes.png'), dpi=150)
+plt.savefig(os.path.join(OUTPUT_DIR, 'similarity_vs_drop_stacked.png'), dpi=150, bbox_inches='tight')
 plt.close()
 print("Scatter plot saved!")
 print("\nDone!")
