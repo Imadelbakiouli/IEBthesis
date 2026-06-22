@@ -1,7 +1,6 @@
 """
 TAPIR EigenCAM - Selected layers, all 30 STYLIZED videos
-Identical pipeline to the real version (numpy SVD), only frames are loaded
-from the stylized mp4s and output goes to a separate dir.
+Identical pipeline to the real version
 """
 
 import numpy as np
