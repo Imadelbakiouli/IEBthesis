@@ -28,7 +28,6 @@ for vid_idx in range(30):
     fig, axes = plt.subplots(6, 6, figsize=(18, 18))
 
     for i, layer in enumerate(layers):
-        # meetlat over ALLE frames van de video voor deze laag
         full_diff = real_h[layer] - styl_h[layer]       # (T, H, W)
         row_vmax = np.max(np.abs(full_diff)) + 1e-8
 
